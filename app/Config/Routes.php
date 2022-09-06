@@ -18,7 +18,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Auth');
+$routes->setDefaultController('Store');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -32,10 +32,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Auth::index');
+$routes->get('/', 'Store::index');
 $routes->get('/dashboard', 'Home::index', ['filter' => 'auth']);
 
 //custom routes
+$routes->get('category/(:segment)', 'Store::category/$1');
 $routes->get('/master/kategori', 'ItemBase::category', ['filter' => 'auth']);
 $routes->get('/master/kategori/(:segment)/delete', 'ItemBase::delete_category/$1', ['filter' => 'auth']);
 $routes->post('/master/kategori/save', 'ItemBase::add_category', ['filter' => 'auth']);

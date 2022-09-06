@@ -38,6 +38,7 @@ class ItemBase extends BaseController
 		$data = [
 			'idcat' => uniqid(),
 			'category' => $post['category'],
+			'slug' => url_title($post['category'], '-', TRUE),
 			'created_by' => $this->session->get('name'),
 		];
 
@@ -48,8 +49,7 @@ class ItemBase extends BaseController
 
 	public function delete_category($id)
 	{
-		$cat = new CategoryModel();
-		$cat->delete($id);
+		$this->cat->delete($id);
 		session()->setFlashdata('success', 'Delete kategori berhasil!!!');
 		return redirect()->to(site_url('/master/kategori/'));
 	}

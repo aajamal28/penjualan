@@ -1,5 +1,8 @@
+<?php
+    $session = session();
+?>
 <div class="navbar-header">
-    <a class="navbar-brand" href="">XYZ Cell</a>
+    <a class="navbar-brand" href=""><?= APP_NAME ?></a>
 </div>
 
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,9 +15,9 @@
 <!-- <ul class="nav navbar-nav navbar-left navbar-top-links">
     <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
 </ul> -->
-
+<?php if( $session->get('logged_in') === TRUE ) : ?>
 <ul class="nav navbar-right navbar-top-links">
-    <li class="dropdown navbar-inverse">
+    <!-- <li class="dropdown navbar-inverse">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
         </a>
@@ -67,7 +70,7 @@
                 </a>
             </li>
         </ul>
-    </li>
+    </li> -->
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="fa fa-user fa-fw"></i> <?php
@@ -86,4 +89,5 @@
         </ul>
     </li>
 </ul>
+<?php endif; ?>
 <!-- /.navbar-top-links -->

@@ -1,5 +1,11 @@
 <?php
+
+use App\Models\CategoryModel;
+
     $session = session();
+    $cat = new CategoryModel();
+
+    $data = $cat->getCategory();
 ?>
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
@@ -16,6 +22,7 @@
                  <!-- input-group -->
                  <img class="img img-thumbnail imgLogo" src="<?= base_url('assets/img/webapp.png') ?>" alt="Apps Logo" width="100px" height="150px">
             </li>
+            <?php if( $session->get('logged_in') === TRUE ) : ?>
             <li>
                 <a href="<?= base_url('/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
@@ -81,6 +88,18 @@
                     <li>
                         <a href="<?= site_url('report/penjualan') ?>">Penjualan</a>
                     </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <?php endif; ?>
+            <li>
+                <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Kategory<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <?php foreach($data as $dt) : ?>
+                    <li>
+                        <a href="<?= site_url("category/".$dt['slug']) ?>"><?= $dt['category'] ?></a>
+                    </li>
+                    <?php endforeach;?>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>

@@ -43,6 +43,7 @@
                                         <th>Deskripsi / Specs</th>
                                         <th width="10%">Unit</th>
                                         <th>Jumlah Stock</th>
+                                        <th>Total Nilai</th>
                                         <th>Transaksi Terkahir</th>
 
                                     </tr>
@@ -54,6 +55,7 @@
                                             <td><?= $stk['desc'] . " / " . $stk['specs'] ?></td>
                                             <td><?= $stk['unit'] ?></td>
                                             <td class="text-right"><?= number_format($stk['stock']) ?></td>
+                                            <td class="text-right"><?= "Rp. ".number_format($stk['stock']*$stk['p_price'], 2, ",", ".") ?></td>
                                             <td><?= $stk['date'] ?>
                                             
                                         </tr>

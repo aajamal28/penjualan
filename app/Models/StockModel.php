@@ -15,6 +15,7 @@ class StockModel extends Model
 		if ($item === false) {
 			return $this->table($this->table)
 				->join('tb_item', 'itemid = id')
+				->join('tb_pricelist', '(tb_pricelist.itemid = tb_stock.itemid and tb_pricelist.status = "1" )')
 				->get()
 				->getResultArray();
 		} else {

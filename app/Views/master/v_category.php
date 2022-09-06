@@ -40,7 +40,8 @@
                                 <thead>
                                     <tr>
                                         <th width="10%">ID. </th>
-                                        <th width="75%">Kategory</th>
+                                        <th width="45%">Kategory</th>
+                                        <th width="35%">URL</th>
                                         <th width="15%">Opsi</th>
                                     </tr>
                                 </thead>
@@ -51,6 +52,7 @@
                                         <tr>
                                             <td><?= $ctg['idcat'] ?></td>
                                             <td><?= $ctg['category'] ?></td>
+                                            <td><?= $ctg['slug'] ?></td>
                                             <td><a href="#" data-href="<?= base_url('master/kategori/' . $ctg['idcat'] . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
                                         </tr>
                                     <?php

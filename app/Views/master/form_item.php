@@ -53,8 +53,7 @@
                                         <!-- <input type="text" class="form-control" id="splTelp" name="splTelp" placeholder="No. Telp. Supplier" required="true" autocomplete="off" > -->
                                         <select class="form-control" id="itemCat" name="itemCat" required="true">
                                             <option value="">-- Pilih --</option>
-                                            <?php foreach ($category as $cat) : ?>
-                                                <option value="<?=$cat['idcat']?>"><?=$cat['category']?></option>
+                                            <?php foreach ($category as $cat) : ?>                                                <option value="<?= $cat['idcat'] ?>"><?= $cat['category'] ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </div>
@@ -69,20 +68,20 @@
                                     <label for="itemDate" class="col-sm-2 col-form-label text-navy text-right">Tgl. Input</label>
                                     <div class="col-sm-3">
                                         <input type="datetime" class="form-control" id="itemDate" name="itemDate" <?php if (isset($item)) {
-                                                                                                                    echo "value = '" . $item['created_at'] . "'";
-                                                                                                                } else {
-                                                                                                                    echo "value ='" . date('Y-m-d H:i:s') . "'";
-                                                                                                                } ?> required="true" readonly>
+                                                                                                                        echo "value = '" . $item['created_at'] . "'";
+                                                                                                                    } else {
+                                                                                                                        echo "value ='" . date('Y-m-d H:i:s') . "'";
+                                                                                                                    } ?> required="true" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="itemBy" class="col-sm-2 col-form-label text-navy text-right">User</label>
                                     <div class="col-sm-3">
                                         <input type="text" class="form-control" id="itemBy" name="itemBy" <?php if (isset($item)) {
-                                                                                                            echo "value = '" . $item['created_by'] . "'";
-                                                                                                        } else {
-                                                                                                            echo "value = '" . $user . "'";
-                                                                                                        } ?> required="true" readonly>
+                                                                                                                echo "value = '" . $item['created_by'] . "'";
+                                                                                                            } else {
+                                                                                                                echo "value = '" . $user . "'";
+                                                                                                            } ?> required="true" readonly>
                                     </div>
                                 </div>
 

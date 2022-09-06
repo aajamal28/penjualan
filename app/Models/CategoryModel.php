@@ -7,8 +7,8 @@ use CodeIgniter\Model;
 class CategoryModel extends Model
 {
 	protected $table                = 'tb_category';
-	protected $primaryKey           = 'id';
-	protected $allowedFields        = ['idcat','category', 'created_by'];
+	protected $primaryKey           = 'idcat';
+	protected $allowedFields        = ['idcat','category', 'created_by', 'slug'];
 
 	// Dates
 	protected $createdField         = 'created_at';
@@ -27,7 +27,7 @@ class CategoryModel extends Model
 				->getResultArray();
 		} else {
 			return $this->table($this->table)
-				->where('id', $id)
+				->where('idcat', $id)
 				->get()
 				->getRowArray();
 		}
