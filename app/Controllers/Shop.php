@@ -27,11 +27,11 @@ class Shop extends BaseController
 	public function addCart($id)
 	{
 		$item = $this->itmModel->getItem($id);
-		$priceItem = $this->prcModel->getItemPrice($item['id']);
+		print_r($item);
 		$dataCart = array(
 			'id' => $item['id'],
 			'qty' => 1,
-			'price' => $priceItem['s_price'],
+			'price' => $item['s_price'],
 			'name' => $item['desc'],
 			'option' => ''
 		);

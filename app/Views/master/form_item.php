@@ -26,13 +26,13 @@
             <div class="col-md-8">
                 <div class="panel panel-primary">
                     <div class="panel-body">
-                        <form role="form" class="form-horizontal" action="<?= base_url('master/barang/save') ?>" method="POST">
+                        <form role="form" class="form-horizontal" action="<?= base_url('master/barang/save') ?>" method="POST" enctype="multipart/form-data">
                             <?= csrf_field() ?>
                             <div class="modal-body">
                                 <div class="form-group row">
                                     <label for="itemId" class="col-sm-2 col-form-label text-navy text-right">ID. Barang</label>
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control" id="itemId" name="itemId" placeholder="ID. Barang" required="true" autocomplete="off" <?php if (isset($item)) echo "value = '" . $item['id'] . "'" ?> <?php if (isset($item)) echo "readonly = 'true' " ?>>
+                                        <input type="text" class="form-control" id="itemId" name="itemId" required="true" autocomplete="off" <?php if(isset($item)) {echo "value ='".$item['id']."'"; }else{echo "value ='".uniqid()."'";} ?> readonly = "true" ?>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -53,7 +53,7 @@
                                         <!-- <input type="text" class="form-control" id="splTelp" name="splTelp" placeholder="No. Telp. Supplier" required="true" autocomplete="off" > -->
                                         <select class="form-control" id="itemCat" name="itemCat" required="true">
                                             <option value="">-- Pilih --</option>
-                                            <?php foreach ($category as $cat) : ?>                                                <option value="<?= $cat['idcat'] ?>"><?= $cat['category'] ?></option>
+                                            <?php foreach ($category as $cat) : ?> <option value="<?= $cat['idcat'] ?>"><?= $cat['category'] ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </div>
@@ -82,6 +82,12 @@
                                                                                                             } else {
                                                                                                                 echo "value = '" . $user . "'";
                                                                                                             } ?> required="true" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="itemUnit" class="col-sm-2 col-form-label text-navy text-right">Gambar</label>
+                                    <div class="col-sm-5">
+                                        <input type="file" class="form-control" id="itemImg" name="itemImg"  required="true" autocomplete="off">
                                     </div>
                                 </div>
 

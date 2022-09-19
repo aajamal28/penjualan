@@ -8,7 +8,7 @@ class ItemModel extends Model
 {
 	protected $table                = 'tb_item';
 	protected $primaryKey           = 'id';
-	protected $allowedFields        = ['id', 'desc', 'specs', 'category', 'unit', 'created_by'];
+	protected $allowedFields        = ['id', 'desc', 'specs', 'category', 'unit', 'created_by','img'];
 
 	// Dates
 	protected $createdField         = 'created_at';
@@ -24,7 +24,7 @@ class ItemModel extends Model
 		if ($id === false) {
 			return $this->table($this->table)
 				->join('tb_category', 'tb_item.category = tb_category.idcat')
-				->join('tb_pricelist','tb_pricelist.itemid = tb_item.id and tb_pricelist.status = "1"')
+				->join('tb_pricelist','tb_pricelist.itemid = tb_item.id and tb_pricelist.status = "1"','left')
 				->get()
 				->getResultArray();
 		} else {

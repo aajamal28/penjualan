@@ -114,6 +114,7 @@ class ItemBase extends BaseController
 	public function add_item()
 	{
 		$data['category'] = $this->cat->getCategory();
+		$data['user'] = $this->session->get('name');
 		return view('master/form_item', $data);
 	}
 
@@ -121,6 +122,8 @@ class ItemBase extends BaseController
 	{
 		$post = $this->request->getPost();
 		$cek = $this->item->getItem($post['itemId']);
+		$image = $this->request->getFile('itemImg');
+		$filename = $image->getRandomName();
 
 		if (!$cek) {
 			$data = [
@@ -129,10 +132,12 @@ class ItemBase extends BaseController
 				'specs' => $post['itemSpecs'],
 				'category' => $post['itemCat'],
 				'unit' => $post['itemUnit'],
-				'created_by' => $post['itemBy']
+				'created_by' => $this->session->get('usrid'),
+				'img' => $filename
 			];
 
 			$this->item->insertItem($data);
+			$image->move(ROOTPATH . 'public/assets/img/item', $filename);
 			session()->setFlashdata('success', 'Register Barang berhasil!!!');
 			return redirect()->to(site_url('/master/barang/'));
 		} else {

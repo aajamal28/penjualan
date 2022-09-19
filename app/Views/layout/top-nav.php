@@ -20,14 +20,14 @@ $session = session();
     <li class="dropdown navbar-inverse">
         <a class="dropdown-toggle" data-toggle="dropdown" href="<?= site_url('keranjang') ?>">
             <i class="fa fa-shopping-cart fa-fw"></i> Keranjang<b class="caret"></b>
-            <span class="badge badge-success"><?= $cartTotal ?></span>
+            <span class="badge badge-success"><?= isset($cartTotal) ? $cartTotal : "0"  ?></span>
         </a>
         <ul class="dropdown-menu dropdown-alerts">
             <li>
                 <a href="<?= site_url('keranjang') ?>">
                     <div>
                         <i class="fa fa-shopping-cart fa-fw"></i> Total Barang
-                        <span class="pull-right text-muted small"><?= $cartTotal ?></span>
+                        <span class="pull-right text-muted small"><?= isset($cartTotal) ? $cartTotal : "0"  ?></span>
                     </div>
                 </a>
             </li>
