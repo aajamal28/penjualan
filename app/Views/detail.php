@@ -30,7 +30,7 @@
                             <div class="col-md-8" style="height: 250px;">
                                 <h3 class="text-info">Rp. <?= number_format($product['s_price']) ?></h3>
                                 <p></p>
-                                <span style="font-weight-bold">Deskripsi :</span><br/>
+                                <span class="font-weight-bold">Deskripsi :</span><br/>
                                 <span><?= $product['specs'] ?></span>
                                 <br />
                                 <hr />
