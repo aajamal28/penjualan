@@ -37,4 +37,12 @@ class CategoryModel extends Model
 	{
 		return $this->table($this->table)->insert($data);
 	}
+
+	public function getCategorySlug($slug)
+	{
+		return $this->table($this->table)
+				->where('slug', $slug)
+				->get()
+				->getRowArray();
+	}
 }

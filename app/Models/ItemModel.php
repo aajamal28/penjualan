@@ -24,11 +24,13 @@ class ItemModel extends Model
 		if ($id === false) {
 			return $this->table($this->table)
 				->join('tb_category', 'tb_item.category = tb_category.idcat')
+				->join('tb_pricelist','tb_pricelist.itemid = tb_item.id and tb_pricelist.status = "1"')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table($this->table)
 				->join('tb_category', 'tb_item.category = tb_category.idcat')
+				->join('tb_pricelist','tb_pricelist.itemid = tb_item.id and tb_pricelist.status = "1"')
 				->where('tb_item.id', $id)
 				->get()
 				->getRowArray();
@@ -43,5 +45,15 @@ class ItemModel extends Model
 	public function updateItem($data, $id)
 	{
 		return $this->db->table($this->table)->update($data, array('id' => $id));
+	}
+
+	public function getItemByCategory($cat)
+	{
+		return $this->table($this->table)
+				->join('tb_category', 'tb_item.category = tb_category.idcat')
+				->join('tb_pricelist','tb_pricelist.itemid = tb_item.id and tb_pricelist.status = "1"')
+				->where('tb_item.category', $cat)
+				->get()
+				->getResultArray();
 	}
 }

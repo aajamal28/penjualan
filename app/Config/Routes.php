@@ -34,6 +34,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Store::index');
 $routes->get('/dashboard', 'Home::index', ['filter' => 'auth']);
+$routes->get('/login','Auth::index');
+$routes->get('/addcart/(:segment)', 'Shop::addcart/$1');
+$routes->get('/keranjang','Shop::displaycart');
+$routes->get('/deletecart/(:segment)','Shop::removecart/$1');
+$routes->post('updatecart','Shop::updatecart');
 
 //custom routes
 $routes->get('category/(:segment)', 'Store::category/$1');
