@@ -53,8 +53,8 @@
                                             <td><?= $part['id'] ?></td>
                                             <td><?= $part['desc'] . " / " . $part['specs'] ?></td>
                                             <td><?= $part['category'] ?></td>
-                                            <td><img class="img-thumbnail" src="<?= base_url() . "/assets/img/item/" . $part['img'] ?>" width="150px" height="150px"></td>
                                             <td><?= $part['unit'] ?></td>
+                                            <td><img class="img-thumbnail" src="<?= base_url() . "/assets/img/item/" . $part['img'] ?>" width="150px" height="150px"></td>
                                             <td>
                                                 <a href="<?= base_url('master/barang/' . $part['id'] . '/detail') ?>" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></a>
                                                 <a href="#" data-href="<?= base_url('master/barang/' . $part['id'] . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
