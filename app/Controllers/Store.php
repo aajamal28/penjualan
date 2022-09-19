@@ -32,5 +32,11 @@ class Store extends BaseController
 		$data['product']= $data['product'] = $this->itmModel->getItemByCategory($catId);
 		$data['cartTotal'] = count($this->cart->contents());;
 		return view('store', $data);
-	}	
+	}
+	
+	public function detail($id)
+	{
+		$data['product'] = $this->itmModel->getItem($id);
+		return view('detail', $data);
+	}
 }

@@ -38,6 +38,7 @@ $routes->get('/login','Auth::index');
 $routes->get('/addcart/(:segment)', 'Shop::addcart/$1');
 $routes->get('/keranjang','Shop::displaycart');
 $routes->get('/deletecart/(:segment)','Shop::removecart/$1');
+$routes->get('/product/(:segment)','Store::detail/$1');
 $routes->post('updatecart','Shop::updatecart');
 
 //custom routes
