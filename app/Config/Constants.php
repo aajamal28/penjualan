@@ -79,5 +79,5 @@ defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 // custom constants
-define('APP_NAME','DST SHOP');
+define('APP_NAME','Sampora Cellular');
 define('APP_VERSION', '1.0');
